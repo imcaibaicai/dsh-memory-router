@@ -1,0 +1,48 @@
+{
+  "name": "dsh-memory-router",
+  "version": "1.0.0",
+  "description": "DeepSeek Harness 跨会话记忆：分层索引常驻注入（L0）+ 每轮按话题自动召回（L1）+ 中文友好 BM25/RRF 检索（L2）+ 去重/冲突/衰减治理。纯 ESM，零第三方依赖。",
+  "type": "module",
+  "main": "lib/index.js",
+  "exports": {
+    ".": "./lib/index.js",
+    "./client": "./lib/client.js",
+    "./package.json": "./package.json"
+  },
+  "files": [
+    "lib",
+    "cordis.patch.yml",
+    "README.md",
+    "LICENSE"
+  ],
+  "keywords": [
+    "dsh",
+    "dsh-plugin",
+    "deepseek-harness",
+    "cordis",
+    "memory",
+    "cross-session",
+    "long-term-memory",
+    "bm25",
+    "rrf",
+    "progressive-disclosure"
+  ],
+  "license": "MIT",
+  "dsh": {
+    "bundle": {
+      "patch": "./cordis.patch.yml"
+    },
+    "client": {
+      "inject": [],
+      "platform": "web",
+      "immediately": true
+    }
+  },
+  "meta": {
+    "title": "跨会话记忆路由",
+    "description": "核心记忆常驻 + 归档索引一行一条 + 每轮自动召回 + 中文 BM25 检索，并自动去重、判冲突、降级冷记忆。"
+  },
+  "engines": {
+    "node": ">=22"
+  }
+}
